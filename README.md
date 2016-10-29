@@ -1,6 +1,6 @@
-##一些常用的函数
+## 一些常用的函数
 
-###数组去重
+### 数组去重
 ```
 1. function unique(arr){
   return Array.from(new Set(arr))
@@ -18,7 +18,7 @@
 ```
 当然还有很多其他的写法
 
-###获取随机颜色值
+### 获取随机颜色值
 ```
 function getRandomColor(){
   let color = '#',
@@ -29,3 +29,5 @@ function getRandomColor(){
   return color
 }
 ```
+
+### 

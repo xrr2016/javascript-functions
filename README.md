@@ -38,5 +38,18 @@ function shuffle(arr) {
         [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]];
     }
 }
-
+```
+### 数字求和
+```
+function forSum(n){
+  if(typeof n !== 'number'){
+    return
+  }
+  n = n - 1
+  let sum = 0
+  for(n;n >= 1;n--){
+    sum += n
+  }
+  return sum
+}
 ```

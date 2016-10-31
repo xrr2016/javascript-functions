@@ -45,7 +45,6 @@ function forSum(n){
   if(typeof n !== 'number'){
     return
   }
-  n = n - 1
   let sum = 0
   for(n;n >= 1;n--){
     sum += n

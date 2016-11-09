@@ -1,12 +1,13 @@
-## 一些常用的函数
+# 一些常用的函数
 
-### 数组去重
+## 数组去重
+
 ```
-1. function unique(arr){
+1\. function unique(arr){
   return Array.from(new Set(arr))
 }
 
-2. function unique(arr){
+2\. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -16,9 +17,11 @@
   return tempArr
 }
 ```
+
 当然还有很多其他的写法
 
-### 获取随机颜色值
+## 获取随机颜色值
+
 ```
 function getRandomColor(){
   let color = '#',
@@ -30,7 +33,8 @@ function getRandomColor(){
 }
 ```
 
-### 数组乱序
+## 数组乱序
+
 ```
 function shuffle(arr) {
     for (let i = arr.length; i; i--) {
@@ -39,7 +43,9 @@ function shuffle(arr) {
     }
 }
 ```
-### 数字求和
+
+## 数字求和
+
 ```
 function forSum(n){
   if(typeof n !== 'number'){
@@ -52,7 +58,9 @@ function forSum(n){
   return sum
 }
 ```
-### 冒泡排序
+
+## 冒泡排序
+
 ```
 function bubbleSort(arr){
   for(let i = 0;i<arr.length-1;i++){
@@ -65,5 +73,27 @@ function bubbleSort(arr){
     }
   }
   return arr
+}
+```
+
+## 对象深拷贝
+
+```
+function deepCopy(parent,child){
+  child = child || {}
+  if(typeof parent !== 'object'){
+    return
+  }  
+  for(let item in parent){
+    if(parent.hasOwnProperty(item)){
+      if(typeof p[item] === 'object'){
+        child[item] = Array.isArray(parent[item])? [] : {}
+        deepCopy(parent[item],child[item])   
+      }else{
+        child[item] = parent[item]
+      }
+    }
+  }
+  return child
 }
 ```

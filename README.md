@@ -107,3 +107,9 @@ function change(a,b){
   return  [a,b] = [b,a]
 }
 ```
+## 寻找数组中最大值与最小值得差值
+```
+function diff(arr){
+  return Math.max(...arr) - Math.min(...arr)
+}
+```

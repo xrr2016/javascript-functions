@@ -3,11 +3,15 @@
 ## 数组去重
 
 ```
-1\. function unique(arr){
+1. function unique(arr){
   return Array.from(new Set(arr))
 }
 
-2\. function unique(arr){
+function unique(arr){
+  return [...new Set(arr)]
+}
+
+2. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -95,5 +99,11 @@ function deepCopy(parent,child){
     }
   }
   return child
+}
+```
+## 变量交换
+```
+function change(a,b){
+  return  [a,b] = [b,a]
 }
 ```

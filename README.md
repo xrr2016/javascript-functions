@@ -113,3 +113,28 @@ function diff(arr){
   return Math.max(...arr) - Math.min(...arr)
 }
 ```
+## 获取n天前/后的日期
+```
+function getDayBeforeAfter(date,type,days){
+  date = date || new Date()
+  type = type || 'after'
+  days = days || 1
+
+  if(!(date instanceof Date)){
+    if(date.indexOf('-') != -1){
+      date.replace(/\-/g,'/')
+    }
+    date = new Date(date)
+  }
+  let newDate = date
+  switch (type){
+    case "after":
+        newDate = new Date(date.getTime() + (days * 24 * 60 * 60 * 1000))      
+        break  
+    case "before":
+        newDate = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000))
+        break  
+  }
+  return `${newDate.getFullYear()}/` + `${newDate.getMonth() + 1}/` + `${newDate.getDate()}`
+}
+```

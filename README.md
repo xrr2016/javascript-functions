@@ -138,3 +138,30 @@ function getDayBeforeAfter(date,type,days){
   return `${newDate.getFullYear()}/` + `${newDate.getMonth() + 1}/` + `${newDate.getDate()}`
 }
 ```
+## 使用Promise对象处理ajax请求
+```
+function promiseAjax(url){
+  return new Promise(function(resolve,reject){
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',url,true)
+    xhr.onload = function(){
+      if(xhr.status >= 200 && xhr.status < 400 ){
+        let data = JSON.parse(xhr.responseText)
+        resovle(data)
+      }else{
+        reject(new Error(xhr.statusText))
+      }
+    }
+    xhr.onerror = function(){
+      reject(new Error(xhr.statusText))
+    }
+    xhr.send()
+  })
+}
+let URL = 'http://news-at.zhihu.com/api/4/news/latest'
+promiseAjax(URL).then(function(data){
+  console.log(data)
+}).catch(function(err){
+  console.log(err)
+})
+```

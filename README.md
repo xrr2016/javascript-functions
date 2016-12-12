@@ -67,3 +67,15 @@ function bubbleSort(arr){
   return arr
 }
 ```
+##字符串重复
+```
+String.prototype.repeatify = String.prototype.repeatify ||
+function(n){
+  if(typeof n !== 'number') return
+  let str =''
+  for(let i=0;i<n;i++){
+      str += this
+  }
+  return str
+}
+```

@@ -191,3 +191,10 @@ function(n){
   return str
 }
 ```
+## 数字左补全
+```
+function leftPad(num){
+  let n = parseInt(num,10)
+  return n > 0 ? (n <= 9 ? '0'+n : n ) : '00'
+}
+```

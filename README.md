@@ -79,7 +79,7 @@ function bubbleSort(arr){
   return arr
 }
 ```
-<<<<<<< HEAD
+
 ##字符串重复
 ```
 String.prototype.repeatify = String.prototype.repeatify ||
@@ -91,7 +91,7 @@ function(n){
   }
   return str
 }
-=======
+```
 
 ## 对象深拷贝
 
@@ -177,5 +177,17 @@ promiseAjax(URL).then(function(data){
 }).catch(function(err){
   console.log(err)
 })
->>>>>>> 37ca0f9772db1414524106a8f34aa87f5122c705
+
+```
+##字符串重复
+```
+String.prototype.repeatify = String.prototype.repeatify ||
+function(n){
+  if(typeof n !== 'number') return
+  let str =''
+  for(let i=0;i<n;i++){
+      str += this
+  }
+  return str
+}
 ```

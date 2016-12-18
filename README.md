@@ -3,7 +3,7 @@
 ## 数组去重
 
 ```
-1. function unique(arr){
+1\. function unique(arr){
   return Array.from(new Set(arr))
 }
 
@@ -11,7 +11,7 @@ function unique(arr){
   return [...new Set(arr)]
 }
 
-2. function unique(arr){
+2\. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -48,6 +48,22 @@ function shuffle(arr) {
 }
 ```
 
+```
+function shuffle(arr){
+  let random = 0,result = [] ,origin = []
+  arr.map(item => {origin.push(item)})
+  while(arr.length > 0){
+    random = Math.floor(Math.random() * arr.length)
+    result.push(arr[random])
+    arr.splice(random, 1)
+  }
+  return {
+    result,
+    origin
+  }   
+}
+```
+
 ## 数字求和
 
 ```
@@ -80,7 +96,8 @@ function bubbleSort(arr){
 }
 ```
 
-##字符串重复
+## 字符串重复
+
 ```
 String.prototype.repeatify = String.prototype.repeatify ||
 function(n){
@@ -114,19 +131,25 @@ function deepCopy(parent,child){
   return child
 }
 ```
+
 ## 变量交换
+
 ```
 function change(a,b){
   return  [a,b] = [b,a]
 }
 ```
+
 ## 寻找数组中最大值与最小值得差值
+
 ```
 function diff(arr){
   return Math.max(...arr) - Math.min(...arr)
 }
 ```
+
 ## 获取n天前/后的日期
+
 ```
 function getDayBeforeAfter(date,type,days){
   date = date || new Date()
@@ -151,7 +174,9 @@ function getDayBeforeAfter(date,type,days){
   return `${newDate.getFullYear()}/` + `${newDate.getMonth() + 1}/` + `${newDate.getDate()}`
 }
 ```
+
 ## 使用Promise对象处理ajax请求
+
 ```
 function promiseAjax(url){
   return new Promise(function(resolve,reject){
@@ -177,9 +202,10 @@ promiseAjax(URL).then(function(data){
 }).catch(function(err){
   console.log(err)
 })
-
 ```
-##字符串重复
+
+## 字符串重复
+
 ```
 String.prototype.repeatify = String.prototype.repeatify ||
 function(n){
@@ -191,7 +217,9 @@ function(n){
   return str
 }
 ```
+
 ## 数字左补全
+
 ```
 function leftPad(num){
   let n = parseInt(num,10)

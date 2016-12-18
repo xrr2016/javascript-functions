@@ -43,7 +43,7 @@ function getRandomColor(){
 function shuffle(arr) {
     for (let i = arr.length; i; i--) {
         let j = Math.floor(Math.random() * i);
-        [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]];
+        [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]]; //ES6解构赋值
     }
 }
 ```
@@ -58,9 +58,9 @@ function shuffle(arr){
   let random = 0,result = [] ,origin = []
   arr.map(item => {origin.push(item)})
   while(arr.length > 0){
-    random = Math.floor(Math.random() * arr.length)
-    result.push(arr[random])
-    arr.splice(random, 1)
+    random = Math.floor(Math.random() * arr.length) //生产原数组随机索引
+    result.push(arr[random]) //向结果数组添加元素
+    arr.splice(random, 1) //删除原数组元素
   }
   return {
     result,

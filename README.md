@@ -1,5 +1,13 @@
 # 一些常用的函数
 
+## 返回带逗号的数字
+
+```
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')  
+}
+```
+
 ## 数组去重
 
 ```

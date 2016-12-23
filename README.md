@@ -1,7 +1,6 @@
 # 一些常用的函数
 
 ## 返回带逗号的数字
-
 ```
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')  
@@ -11,7 +10,7 @@ function numberWithCommas(x) {
 ## 数组去重
 
 ```
-1\. function unique(arr){
+1. function unique(arr){
   return Array.from(new Set(arr))
 }
 
@@ -19,7 +18,7 @@ function unique(arr){
   return [...new Set(arr)]
 }
 
-2\. function unique(arr){
+2. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -143,6 +142,9 @@ function deepCopy(parent,child){
   }
   return child
 }
+```
+```
+const copy =  JSON.parse(JSON.stringify(source))
 ```
 
 ## 变量交换

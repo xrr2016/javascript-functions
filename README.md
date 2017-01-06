@@ -241,3 +241,16 @@ function leftPad(num){
   return n > 0 ? (n <= 9 ? '0'+n : n ) : '00'
 }
 ```
+## 斐波那契数列
+```
+function fibonacci(n){
+  const res = [1,1]
+  if(typeof n !== 'number') return
+  if(n === 0) return res
+  while(n > 0){
+    res.push(res[res.length -2] + res[res.length - 1])  
+    n--
+  }
+  return res
+}
+```

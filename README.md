@@ -18,6 +18,10 @@ function unique(arr){
   return [...new Set(arr)]
 }
 
+Array.prototype.unique = function(){
+  return [...new Set(this)]
+}
+
 2. function unique(arr){
   let tempArr = []
   arr.map((v)=>{

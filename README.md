@@ -10,15 +10,7 @@ function numberWithCommas(x) {
 ## 数组去重
 
 ```
-1. function unique(arr){
-  return Array.from(new Set(arr))
-}
-
-function unique(arr){
-  return [...new Set(arr)]
-}
-
-Array.prototype.unique = function(){
+1.Array.prototype.unique = function(){
   return [...new Set(this)]
 }
 
@@ -31,9 +23,16 @@ Array.prototype.unique = function(){
   })  
   return tempArr
 }
+
+3.Array.prototype.unique = function(){
+  let res = this.sort(),
+  return res.filter((v,i,context)=>{
+      return v !== context[i + 1]
+  })
+}
+
 ```
 
-当然还有很多其他的写法
 
 ## 获取随机颜色值
 

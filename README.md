@@ -13,7 +13,9 @@ function numberWithCommas(x) {
 1.Array.prototype.unique = function(){
   return [...new Set(this)]
 }
+```
 
+```
 2. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
@@ -23,14 +25,15 @@ function numberWithCommas(x) {
   })  
   return tempArr
 }
+```
 
+```
 3.Array.prototype.unique = function(){
   let res = this.sort(),
   return res.filter((v,i,context)=>{
       return v !== context[i + 1]
   })
 }
-
 ```
 
 
@@ -58,7 +61,7 @@ function shuffle(arr) {
 }
 ```
 ```
-[1,2,3,4,5].sort(function(){
+[1,2,3,4,5].sort(() => {
     return Math.random() > .5 ? 1 : -1
 })
 ```

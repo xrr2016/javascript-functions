@@ -50,6 +50,16 @@ function getRandomColor(){
 }
 ```
 
+```
+function randomColor(){
+  let color = 'rgba('
+  for(i = 0; i < 3; i++){
+    color += `${Math.round(Math.random() * 255)},`
+  }
+  return color += `${Math.random().toFixed(1)})`
+}
+```
+
 ## 数组乱序
 
 ```

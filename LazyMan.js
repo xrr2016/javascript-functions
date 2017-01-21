@@ -15,9 +15,11 @@ class LazyMan {
             self.next()
         }, 0)
     }
-    next() {
+    next(time = 0) {
         const fn = this.tasks.shift()
-        fn && fn()
+        setTimeout(()=>{
+          fn && fn()
+        },time)
     }
     eat(food) {
         const self = this
@@ -54,6 +56,20 @@ class LazyMan {
         })(time)
         this.tasks.push(fn)
         return this
+    }
+    takeABreak(time = 1){
+      const self =  this
+      const fn = ((time)=>{
+        return () => {
+          setTimeout(()=>{
+            console.log('------------------>')
+            console.log(`Take a break for ${time} hours`)
+            self.next()
+          },time * 1000)
+        }
+      })(time)
+      this.tasks.push(fn)
+      return this
     }
     play(time) {
         const self = this

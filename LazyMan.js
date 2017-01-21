@@ -5,6 +5,7 @@ class LazyMan {
         const self = this
         const fn = ((name) => {
             return () => {
+                console.log('------------------>')
                 console.log(`Hi! This is ${name} !`);
                 self.next()
             }
@@ -22,6 +23,7 @@ class LazyMan {
         const self = this
         const fn = ((food) => {
             return () => {
+                console.log('------------------>')
                 console.log(`Eatting ${food} ~~`)
                 self.next()
             }
@@ -29,31 +31,46 @@ class LazyMan {
         this.tasks.push(fn)
         return this
     }
+    first(thing) {
+        const self = this
+        const fn = ((thing) => {
+            return () => {
+                console.log('------------------>')
+                console.log(`Do this ${thing} first`)
+                self.next()
+            }
+        })(thing)
+        this.tasks.unshift(fn)
+        return this
+    }
     sleep(time) {
         const self = this
         const fn = ((time) => {
             setTimeout(() => {
-                console.log(`Wake up after ${time} hours`)
+                console.log('------------------>')
+                console.log(`Sleep  ${time} hours`)
                 self.next()
-            }, time)
+            }, time * 1000)
         })(time)
         this.tasks.push(fn)
         return this
     }
-    sleepFrist(time) {
+    play(time) {
         const self = this
         const fn = ((time) => {
             return () => {
                 setTimeout(() => {
-                  console.log(`Wake up after ${time} hours`)
-                  self.next()
-                },time)
+                    console.log('------------------>')
+                    console.log(`Play ${time} hours`)
+                    self.next()
+                }, time * 1000)
             }
         })(time)
-        this.tasks.unshift(fn)
+        this.tasks.push(fn)
         return this
     }
 }
-function aLazyMan(name,tasks){
-  return new LazyMan(name,tasks)
+
+function aLazyMan(name, tasks) {
+    return new LazyMan(name, tasks)
 }

@@ -270,3 +270,12 @@ function fibonacci(n){
   return res
 }
 ```
+## 生成随机字符串
+```
+function getRandomString(n){
+  if(typeof n != 'number') return
+  let str = ""
+  for(;str.length < n;str += Math.random().toString(36).substr(2)){}
+  return str.substr(0,n)
+}
+```

@@ -233,6 +233,24 @@ promiseAjax(URL).then(function(data){
   console.log(err)
 })
 ```
+## Fetch API
+```
+const url = URL.fomat({
+  pathname:''
+})
+const headers = new Headers({
+  'Content-type':'application/json'  
+})
+const request = new Request(url,{
+  method:'get',
+  mode:'cors',
+  credentials:'include',
+  headers,
+  body:JSON.stringify(body)
+})
+const reponse = await fetch(request)
+const data = await reponse.json()
+```
 
 ## 字符串重复
 

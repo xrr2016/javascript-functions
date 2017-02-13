@@ -1,6 +1,7 @@
 # 一些常用的函数
 
 ## 返回带逗号的数字
+
 ```
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')  
@@ -16,7 +17,7 @@ function numberWithCommas(x) {
 ```
 
 ```
-2. function unique(arr){
+2\. function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -35,7 +36,6 @@ function numberWithCommas(x) {
   })
 }
 ```
-
 
 ## 获取随机颜色值
 
@@ -70,6 +70,7 @@ function shuffle(arr) {
     }
 }
 ```
+
 ```
 [1,2,3,4,5].sort(() => {
     return Math.random() > .5 ? 1 : -1
@@ -158,6 +159,7 @@ function deepCopy(parent,child){
   return child
 }
 ```
+
 ```
 const copy =  JSON.parse(JSON.stringify(source))
 ```
@@ -233,7 +235,9 @@ promiseAjax(URL).then(function(data){
   console.log(err)
 })
 ```
+
 ## Fetch API
+
 ```
 const url = URL.fomat({
   pathname:''
@@ -274,7 +278,9 @@ function leftPad(num){
   return n > 0 ? (n <= 9 ? '0'+n : n ) : '00'
 }
 ```
+
 ## 斐波那契数列
+
 ```
 function fibonacci(n){
   const res = [1,1]
@@ -287,12 +293,30 @@ function fibonacci(n){
   return res
 }
 ```
+
 ## 生成随机字符串
+
 ```
 function getRandomString(n){
   if(typeof n != 'number') return
   let str = ""
   for(;str.length < n;str += Math.random().toString(36).substr(2)){}
   return str.substr(0,n)
+}
+```
+
+## 函数防抖
+
+```
+function debounce(fn,delay){
+  let timer = null
+  return function() {
+    const self = this
+    let args = arguments
+    clearTimeout(timer)
+    timer = setTimeout(()=>{
+      fn.apply(self,args)  
+    },delay)
+  }
 }
 ```

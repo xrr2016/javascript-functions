@@ -1,5 +1,18 @@
 # 一些常用的函数
 
+## js实现LazyMan
+
+[Lazyman.js](./lazyman/lazyman.js)
+
+## js封装ajax,jsonp
+
+[Ajax.js](./ajax/ajax.js)
+
+## js双向绑定
+
+## js十种排序算法
+
+
 ## 返回带逗号的数字
 
 ```

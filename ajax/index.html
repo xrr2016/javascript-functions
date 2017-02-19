@@ -10,14 +10,16 @@
     <style media="screen">
         body {
             display: flex;
+            height: 100%;
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
         }
 
         .text {
-            width: 500px;
-            height: 400px;
+            margin-top: 10px;
+            width: 900px;
+            height: 500px;
             /*border-style: dashed;*/
             border: 1px dashed #999;
         }
@@ -25,23 +27,27 @@
 </head>
 
 <body>
-    <p class="text"></p>
     <button class="btn">Send</button>
+    <p class="text"></p>
     <script type="text/javascript">
         const btn = document.querySelector('.btn')
         const jsonBird = 'https://bird.ioliu.cn/v1?url='
-        const doubanMovie = 'http://api.douban.com/v2/movie/in_theaters?city='
+        const doubanMovie = 'http://api.douban.com/v2/movie/in_theaters'
         const url = `${jsonBird}${doubanMovie}`
+        const weather = 'http://api.asilu.com/weather/'
         function success(data) {
           const text = document.querySelector('.text')
-          text.textContent = data 
+          text.textContent = data
         }
         btn.addEventListener('click', () => {
             ajax({
-                url: url,
+                url: weather,
                 type: 'get',
-                data: '珠海',
-                success: success,
+                data : {
+                  city : '珠海'
+                },
+                // timeout : 3000,
+                jsonp :'success',
                 error: (status) => {
                     console.log(status)
                 }

@@ -42,7 +42,39 @@
                 request.send(options.data)
             }
         }
-        jsonp(options){}
+        jsonp(options){
+          const callBackname = options.jsonp,
+                head = D.getElementsByTagName('head')[0],
+                script = D.createElement('script')
+          // 将jsonp回调加到请求url后
+          options.data['callback'] = callBackname
+          const data = this.formatData(options.data)
+          //将script添加到页面head标签内
+          head.appendChild(script)
+          console.log(head)
+          //发送请求
+          script.src = `${options.url}?${data}`
+          // if(options.timeout){
+          //   script.timeout = setTimeout(() => {
+          //     W[callBack] = null
+          //     head.removeChild(script)
+          //     !!options.error && options.error({
+          //       msg : '超时!'
+          //     })
+          //   },options.timeout)
+          // }
+          //将回调函数添加至Window对象
+          setTimeout(()=>{
+            W[callBackname] = function(json){
+              head.removeChild(script)
+              clearTimeout(script.timeout)
+              // W[callBackname] = null
+              // options.success(json)
+              W[callBackname](json)
+              console.log(W[callBackname])
+            }
+          },0)
+        }
         formatData(data) {
             let arr = []
             for (let key in data) {

@@ -23,14 +23,14 @@ function numberWithCommas(x) {
 
 ## 数组去重
 
-```
-1.Array.prototype.unique = function(){
+```javascript
+Array.prototype.unique = function(){
   return [...new Set(this)]
 }
 ```
 
-```
-2\. function unique(arr){
+```javascript
+function unique(arr){
   let tempArr = []
   arr.map((v)=>{
     if(!(v in tempArr)){
@@ -41,8 +41,8 @@ function numberWithCommas(x) {
 }
 ```
 
-```
-3.Array.prototype.unique = function(){
+```javascript
+Array.prototype.unique = function(){
   let res = this.sort(),
   return res.filter((v,i,context)=>{
       return v !== context[i + 1]
@@ -52,7 +52,7 @@ function numberWithCommas(x) {
 
 ## 获取随机颜色值
 
-```
+```javascript
 function getRandomColor(){
   let color = '#',
       letters = '0123456789abcdef'
@@ -63,7 +63,7 @@ function getRandomColor(){
 }
 ```
 
-```
+```javascript
 function randomColor(){
   let color = 'rgba('
   for(i = 0; i < 3; i++){
@@ -75,7 +75,7 @@ function randomColor(){
 
 ## 数组乱序
 
-```
+```javascript
 function shuffle(arr) {
     for (let i = arr.length; i; i--) {
         let j = Math.floor(Math.random() * i);
@@ -84,13 +84,13 @@ function shuffle(arr) {
 }
 ```
 
-```
+```javascript
 [1,2,3,4,5].sort(() => {
     return Math.random() > .5 ? 1 : -1
 })
 ```
 
-```
+```javascript
 function shuffle(arr){
   let random = 0,result = [] ,origin = []
   arr.map(item => {origin.push(item)})
@@ -108,7 +108,7 @@ function shuffle(arr){
 
 ## 数字求和
 
-```
+```javascript
 function forSum(n){
   if(typeof n !== 'number'){
     return
@@ -123,7 +123,7 @@ function forSum(n){
 
 ## 冒泡排序
 
-```
+```javascript
 function bubbleSort(arr){
   const len = arr.length
   for(let i = 0;i < len;i++){
@@ -139,7 +139,7 @@ function bubbleSort(arr){
 
 ## 字符串重复
 
-```
+```javascript
 String.prototype.repeatify = String.prototype.repeatify ||
 function(n){
   if(typeof n !== 'number') return
@@ -153,7 +153,7 @@ function(n){
 
 ## 对象深拷贝
 
-```
+```javascript
 function deepCopy(parent,child){
   child = child || {}
   if(typeof parent !== 'object'){
@@ -173,13 +173,13 @@ function deepCopy(parent,child){
 }
 ```
 
-```
+```javascript
 const copy =  JSON.parse(JSON.stringify(source))
 ```
 
 ## 变量交换
 
-```
+```javascript
 function change(a,b){
   return  [a,b] = [b,a]
 }
@@ -187,7 +187,7 @@ function change(a,b){
 
 ## 寻找数组中最大值与最小值得差值
 
-```
+```javascript
 function diff(arr){
   return Math.max(...arr) - Math.min(...arr)
 }
@@ -195,7 +195,7 @@ function diff(arr){
 
 ## 获取n天前/后的日期
 
-```
+```javascript
 function getDayBeforeAfter(date,type,days){
   date = date || new Date()
   type = type || 'after'
@@ -222,7 +222,7 @@ function getDayBeforeAfter(date,type,days){
 
 ## 使用Promise对象处理ajax请求
 
-```
+```javascript
 function promiseAjax(url){
   return new Promise(function(resolve,reject){
     const xhr = new XMLHttpRequest()
@@ -251,7 +251,7 @@ promiseAjax(URL).then(function(data){
 
 ## Fetch API
 
-```
+```javascript
 const url = URL.fomat({
   pathname:''
 })
@@ -271,7 +271,7 @@ const data = await reponse.json()
 
 ## 字符串重复
 
-```
+```javascript
 String.prototype.repeatify = String.prototype.repeatify ||
 function(n){
   if(typeof n !== 'number') return
@@ -285,7 +285,7 @@ function(n){
 
 ## 数字左补全
 
-```
+```javascript
 function leftPad(num){
   let n = parseInt(num,10)
   return n > 0 ? (n <= 9 ? '0'+n : n ) : '00'
@@ -294,7 +294,7 @@ function leftPad(num){
 
 ## 斐波那契数列
 
-```
+```javascript
 function fibonacci(n){
   const res = [1,1]
   if(typeof n !== 'number') return
@@ -309,7 +309,7 @@ function fibonacci(n){
 
 ## 生成随机字符串
 
-```
+```javascript
 function getRandomString(n){
   if(typeof n != 'number') return
   let str = ""
@@ -320,7 +320,7 @@ function getRandomString(n){
 
 ## 函数防抖
 
-```
+```javascript
 function debounce(fn,delay){
   let timer = null
   return function() {
@@ -332,4 +332,30 @@ function debounce(fn,delay){
     },delay)
   }
 }
+```
+## 实现indexOf
+
+```javascript
+Array.prototype.indexOf = Array.prototype.indexOf ||
+                          function (ele, fromIndex) {
+                            if(this === null || !ele) {
+                              return -1
+                            }
+                            let length = this.length
+                            let i = fromIndex || 0
+                            let cur = -1
+                            while(true) {
+                              if(this[i] === ele){
+                                cur = i
+                                break
+                              }else {
+                                i++
+                                if(length === i){
+                                  break
+                                }
+                                continue
+                              }
+                            }
+                            return cur
+                          }
 ```

@@ -332,6 +332,16 @@ function getRandomString(n){
 }
 ```
 
+## 将浮点数左边的数每3位加逗号
+```javascript
+function commafy (num) {
+  return num && num.toString()
+                   .replace(/(\d)(?=(\d{3})+\.)/g, ($1, $2) => {
+                     return $2 += ','
+                   })
+}
+```
+
 ## 函数防抖
 
 ```javascript

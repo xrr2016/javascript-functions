@@ -310,6 +310,17 @@ function fibonacci(n){
 }
 ```
 
+## 阶乘
+```javascript
+function factorial (n) {
+  function fact (n, res) {
+    if (n < 2) return res
+    return fact(n - 1, n * res)
+  }
+  return fact(n, 1)
+}
+```
+
 ## 生成随机字符串
 
 ```javascript

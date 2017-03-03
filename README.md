@@ -140,20 +140,6 @@ function bubbleSort(arr){
 }
 ```
 
-## 字符串重复
-
-```javascript
-String.prototype.repeatify = String.prototype.repeatify ||
-function(n){
-  if(typeof n !== 'number') return
-  let str =''
-  for(let i=0;i<n;i++){
-      str += this
-  }
-  return str
-}
-```
-
 ## 对象深拷贝
 
 ```javascript

@@ -18,9 +18,17 @@
 
 ## 返回带逗号的数字
 
-```
+```javascript
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')  
+}
+```
+
+## 是否是数组
+```javascript
+function isArray (arr) {
+  return typeof Array.isArray === 'function' ?
+                Array.isArray(arr) : Object.prototype.toString.call(arr) === '[Object Array]'
 }
 ```
 

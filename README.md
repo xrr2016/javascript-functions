@@ -143,6 +143,17 @@ function forSum(n){
 }
 ```
 
+## 函数柯里化
+```javascript
+function sum (item) {
+  var cur = item;
+  var inner = function (next) {
+      return next == null ? cur : (cur += next, inner)
+  };
+  return item == null ? undefined : inner
+}
+```
+
 ## 冒泡排序
 
 ```javascript
@@ -169,7 +180,7 @@ function deepCopy(parent,child){
   }  
   for(let item in parent){
     if(parent.hasOwnProperty(item)){
-      if(typeof p[item] === 'object'){
+      if(typeof parent[item] === 'object'){
         child[item] = Array.isArray(parent[item])? [] : {}
         deepCopy(parent[item],child[item])   
       }else{
@@ -188,8 +199,8 @@ const copy =  JSON.parse(JSON.stringify(source))
 ## 变量交换
 
 ```javascript
-function change(a,b){
-  return  [a,b] = [b,a]
+function change(a, b){
+  return  [a, b] = [b, a]
 }
 ```
 

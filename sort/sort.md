@@ -138,6 +138,26 @@ function heapSort (arr) {
 
 ### 桶排序
 
-## 基数排序
+## 基数排序(Count Sort)
+```javascript
+function countSort(arr) {
+  let index = 0,
+      min = Math.min.apply(null, arr),
+      max = Math.max.apply(null, arr)
+      res = []
+  for (let i = min; i <= max; i++) {
+    res[i] = 0
+  }    
+  for (let i = 0; i < arr.length; i++) {
+    res[arr[i]]++
+  }
+  for (let i = min; i <= max; i++) {
+    while (res[i]-- > 0) {
+      arr[index++] = i
+    }
+  }
+  return arr
+}
+```
 
 [参考链接](https://sort.hust.cc/)

@@ -136,9 +136,33 @@ function heapSort (arr) {
 
 ### 计数排数
 
-### 桶排序
+### 桶排序(Bucket Sort)
+```javascript
+function bucketSort (size = 5, arr) {
+  if (arr.length < 2 ) {
+    return arr
+  }
+  const max = Math.max.apply(null, arr)
+  const min = Math.min.apply(null, arr)
 
-## 基数排序(Count Sort)
+  const bucketNumber = Math.floor((max - min) / size) + 1
+  const buckets = []
+  buckets.length = bucketNumber
+  for (let i = 0; i < bucketNumber; i++) {
+    buckets[i] = []
+  }
+  for (let i = 0; i < arr.length; i++) {
+    let index = Math.floor((arr[i] - min) / size)
+    buckets[index].push(arr[i])
+  }
+  for (let i = 0; i < buckets.length; i++) {
+    buckets[i] = quickSort(buckets[i])
+  }
+  return buckets.join(',').split(',').filter(v => v !== '').map(Number)
+}
+```
+
+## 计数排序(Count Sort)
 ```javascript
 function countSort(arr) {
   let index = 0,

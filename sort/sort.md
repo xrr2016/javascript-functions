@@ -130,11 +130,64 @@ function swap (arr, i, j) {
 ### 堆排序(Heap Sort)
 ```javascript
 function heapSort (arr) {
-
+  const heapify = function (x, len, arr) {
+      let l = 2 * x + 1,
+          r = 2 * x + 2,
+          max = x
+      if (l < arr.length && arr[l] > arr[max]) {
+        max = 1
+      }
+      if (r < arr.length && arr[r] > arr[max]) {
+        max = r
+      }
+      if (max !== x) {
+        [arr[x], arr[max]] = [arr[max], arr[x]]
+        heapify(max, arr.length, arr)
+      }     
+    }
+    for (let i = Math.floor(arr.length / 2); i >= 0; i++) {
+      heapify(i, arr.length, arr)
+    }
+    for (let i = arr.length - 1; i >= 1; i--) {
+      [arr[0], arr[i]] = [arr[i], arr[0]]  
+      heapify(0, --arr.length; arr)
+    }
+    return arr
 }
 ```
 
-### 计数排数
+### 基数排数(Radix Sort)
+```javascript
+function radixSort (arr) {
+  const SIZE = 10
+  let buckets = []
+  let max = Math.max.apply(null, arr)
+  let maxLenght = String(max).length
+  for (let i = 0; i < SIZE; i++) {
+    buckets[i] = []
+  }
+  for (let i = 0; i < maxLenght; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      let value = String(arr[j])
+      if (value.length >= i + 1) {
+        let num = Number(value[value.length - 1 - i])
+        buckets[num].push(arr[j])
+      } else {
+        buckets[0].push(arr[i])
+      }
+    }
+    arr.length = 0
+    for (let k = 0; k < SIZE; k++) {
+      let l = buckets[k].length
+      for (let l = 0; k < l; k++) {
+        arr.push(buckets[k][l])
+      }
+      buckets[k] = []
+    }
+  }
+  return arr
+}
+```
 
 ### 桶排序(Bucket Sort)
 ```javascript
